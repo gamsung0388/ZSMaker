@@ -1,0 +1,246 @@
+.editor-toolbar {
+  width: min(1640px, 96vw);
+  margin: 0 auto 14px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.93);
+  border: 1px solid #cfe8bf;
+  border-radius: 24px;
+  box-shadow: 0 14px 34px rgba(67, 107, 47, 0.14);
+}
+
+.toolbar-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 225px;
+  padding: 7px 12px;
+  border-radius: 18px;
+  background: #f2faec;
+  border: 1px solid #d7edcb;
+}
+
+.toolbar-title .panda {
+  font-size: 30px;
+}
+
+.toolbar-title strong {
+  display: block;
+  color: #235218;
+  font-size: 17px;
+  font-weight: 950;
+  line-height: 1.1;
+}
+
+.toolbar-title p {
+  margin-top: 3px;
+  color: #6f8f61;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.tool-group {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 10px;
+  background: #f6fbf2;
+  border: 1px solid #d8ebca;
+  border-radius: 15px;
+}
+
+.tool-group label {
+  font-size: 13px;
+  font-weight: 950;
+  color: #3e6e31;
+  white-space: nowrap;
+}
+
+.tool-group select {
+  height: 28px;
+  min-width: 86px;
+  border: 1px solid #b8d8a5;
+  border-radius: 10px;
+  padding: 0 8px;
+  background: #fff;
+  color: #2e5525;
+  font-weight: 850;
+  outline: none;
+}
+
+.range-group input[type='range'] {
+  width: 86px;
+  accent-color: #6fae57;
+}
+
+.range-group span {
+  min-width: 38px;
+  color: #527646;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.tool-group input[type='color'] {
+  width: 34px;
+  height: 30px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.tool-button {
+  height: 40px;
+  padding: 0 13px;
+  border: 1px solid #bfdcac;
+  border-radius: 15px;
+  background: #ffffff;
+  color: #35632a;
+  font-weight: 950;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.tool-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(73, 112, 52, 0.14);
+}
+
+.tool-button:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.tool-button.active {
+  background: #75ad5d;
+  color: white;
+  border-color: #75ad5d;
+}
+
+.tool-button.danger {
+  color: #7a4336;
+  border-color: #e4c4b8;
+  background: #fff7f4;
+}
+
+.tool-button.export {
+  color: white;
+  border-color: #4d873a;
+  background: linear-gradient(180deg, #7eba65, #599342);
+}
+
+.preview-wrap {
+  width: min(1640px, 96vw);
+  margin: 0 auto;
+  overflow-x: auto;
+}
+
+.schedule-canvas {
+  position: relative;
+  width: min(1640px, 96vw);
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 18px 48px rgba(67, 105, 44, 0.16);
+  background: #fff;
+}
+
+.schedule-template {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+.schedule-input {
+  position: absolute;
+  z-index: 2;
+  border: 0;
+  outline: none;
+  resize: none;
+  background: transparent;
+  font-family:
+    'Pretendard',
+    'Noto Sans KR',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  line-height: 1.22;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.8),
+    0 0 6px rgba(255, 255, 255, 0.9);
+}
+
+.schedule-input::placeholder {
+  color: rgba(70, 105, 54, 0.24);
+  font-weight: 800;
+}
+
+.content-input,
+.content-export-text {
+  padding: 13px 22px;
+  overflow: hidden;
+}
+
+.content-export-text {
+  display: none;
+  white-space: pre-wrap;
+  word-break: keep-all;
+}
+
+.time-input {
+  padding: 0 8px;
+}
+
+.time-export-text {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0 8px;
+  white-space: nowrap;
+}
+
+.schedule-canvas.exporting .schedule-input::placeholder {
+  color: transparent;
+}
+
+.schedule-canvas.exporting .content-input,
+.schedule-canvas.exporting .time-input {
+  color: transparent !important;
+  caret-color: transparent;
+}
+
+.schedule-canvas.exporting .content-export-text {
+  display: block;
+}
+
+.schedule-canvas.exporting .time-export-text {
+  display: flex;
+}
+
+@media (max-width: 900px) {
+  .editor-toolbar {
+    border-radius: 18px;
+  }
+
+  .toolbar-title {
+    width: 100%;
+  }
+
+  .schedule-canvas {
+    width: 1100px;
+  }
+}

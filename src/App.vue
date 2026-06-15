@@ -1,11 +1,7 @@
 <template>
- <zioScheduleMaker/>
+  <ZioScheduleMaker />
 </template>
 
 <script setup>
-import zioScheduleMaker from './views/zio_schedule_maker.vue'
-
+import ZioScheduleMaker from './views/zio_schedule_maker.vue'
 </script>
-
-<style scoped>
-</style>
